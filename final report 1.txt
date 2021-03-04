@@ -1,0 +1,109 @@
+1. Introduction 1.1 Background: In this project we will be looking at the cities
+of Portland, Oregon, United States and Sacramento, California, United States,
+comparing and contrasting their neighborhoods, populations and local businesses
+and venues. Both cities are similar in several ways. They both share a similar
+population (Portland: 645,391, Sacramento: 500,920), they both have similar
+average income (Portland Individual: $35,459, Sacramento Individual: $31,574),
+and they are both located on the West Coast of the United States.
+
+1.2 Problem: Although these two cities have a lot in common, we also want to
+find out what makes them unique. This could be population density within the
+individual neighborhoods of each city. Another question we could ask is how are
+the neighborhoods geographically spread out? There could also be differences in
+the number of shops/venues/attractions that exist in each city and what types of
+attractions they are. 
+
+1.3 Interest: The information gathered in this project could be used by business
+executives, real estate agencies, travel magazines as well as Governement/State
+officials. Comparing these cities is important because they are a good example
+of what an average "big city" looks like in the United States. They are by no
+means the biggest in the US (Portland is ranked number 26 largest US city and
+Sacramento is ranked 36). I think this is important because these cities can be
+used as a better average for large cities than looking at the very most
+populated cities in a country. If a real estate business wants to expand, it
+could use this data to help decide which city has better prospects for their
+market. Or perhaps seeing venue and shop distribution within major cities could
+help city builders better understand how shops naturally crop up and what types
+of businesses and where.
+
+2. Data 2.1 Data Description: In order to solve our problem at looking at how
+these two cities compare and contrast, we will need to see the locations and
+populations of each neighborhood in each city. For this project, 30
+neighborhoods were chosen semi-randomly from each city to make the data more
+managable. Semi-randomly in this context meaning that downtown neighborhood
+locations were intentionally chosen, as well as a handful of "close to downtown"
+neighborhoods and then some "outside downtown" neighborhoods were included as
+well to help get an even spread of what the city is like. Outlier neighborhoods
+(either being too far away from downtown, or being too small population wise)
+were not included. The data for the venues/shops will help give further insight
+into the cities and how they are laid out. The data for venues has been gathered
+with Foursquare's API. This API will give us limited information about each
+venue within a specified radius of the neighborhood's estimated center. The
+results yielded from Foursquare's APi in this project came to a total of 1,241
+venues between the two cities. 
+
+2.2 Data Source: The data I will be looking at comes from as follows:
+https://www.portlandoregon.gov, https://www.cityofsacramento.org,
+https://en.wikipedia.org/wiki/Portland,_Oregon,https://en.wikipedia.org/wiki/Sacramento,_California,
+Foursquare.com and the GeoPy Package Nominatim API. The first 4 links help to
+describe the neighborhoods and populations of the cities. Foursquare and GeoPy
+were used to find venue and neighborhood coordinates, as well as venue names,
+categories, and popularity. 
+
+3. Methodology 3.1 Exploratory Data Analysis: We will be looking at how the two
+cities compare and contrast by considering the neighborhoods that make up each
+city. This includes looking at the population within each neighborhood,
+comparing neighborhoods distances from downtown, comparing venue totals and
+averages. We will also try to predict neighborhoods that have a cafe of some
+type and find methods of grouping the neighborhoods based on proximity as well
+as venue category.
+
+3.2 Inferential Statistical Testing: To help show the validity of our project,
+we will include some comparison tests and correlation tests. We will be doing
+some regression score tests to see how well our model can estimate the
+population of a neighborhood based on its distance from downtown. We will use
+Jaccard index and a confusion matrix to see how well our model predicts a
+neighborhood having a cafe based on venue count and population. We will also use
+the elbow method to determine a good value for k for k means clustering.
+
+3.3 Machine Learning: We will be using: linear regression, logistic regression,
+and k means clustering.  
+
+4. Results Many predictive models did not return very promising results when
+using the coefficient of determination and using Jaccard index. This was
+expected because the data used was not very large and the results sway heavily
+depending on how the train and test portions are split. Also the venue results
+from Foursquare seemed to range greatly depending on the neighborhood (with some
+neighborhoods only returning 1 venue result!) which may be due to a lack of
+information on their end. The k-means clustering of top visited venues also
+returned odd results. The elbow method was not very decisive for choosing an
+optimal k number and certain groups seemed to have members that did not belong.
+
+5. Discussion Section As I mentioned before, I noticed that train/test sets
+would vairy significantly when I reran tests. I also noticed a warning appear
+when trying to show 2 folium maps side by side in the same cell, but could never
+get rid of it. The data for Portland was usually a lot more reliable and easy to
+work with and produced more reasonable results than that of Sacramento.
+Sacramento's data seemed more random and returned less venues overall than
+Portland. I don't have many recommendations expect to keep working at the
+project and try not to take long breaks inbetween so as not to forget things
+along the way.
+
+6. Conclusion The data gathered in this report has expressed a few things about
+the two cities. For one, Portland's population seems to be more evenly
+distributed than Sacramento's. Portland has higher populated neighborhoods
+further from downtown rather than those that are very close. Sacramento's
+neighborhoods seemed to be split, North and South along the Sacramento
+River/American River. Portland also had more cafes and coffeshops as well as
+venues in general than Sacramento did. It would appear that the closer to
+downtown the neighborhood was, the more venues it had in general for both
+cities. Sacramento's data in general seemed to have more outliers than
+Portland's. However when grouping the cities into 4 clusters based on distance,
+Sacramento did have a more steady average population within each cluster,
+hovering around 5,000. Portland's 4 clusters were a bit more spread out, in this
+regard. Both cities produced similar k means clustering when it came to
+clustering the venues based on most popular venues. Each city had 1 cluster that
+held a majority of the neighborhoods with several other clusters only containing
+one or two neighborhoods. The most common venues in Sacramento were grocery
+stores, restaurants and parks. In Portland the most common venues were coffee
+shops, bars, parks and restaurants. 
